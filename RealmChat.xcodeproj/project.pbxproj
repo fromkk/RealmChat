@@ -14,6 +14,8 @@
 		4F13E0861DA484B000836064 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F13E0841DA484B000836064 /* LaunchScreen.storyboard */; };
 		4F13E0911DA484B000836064 /* RealmChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13E0901DA484B000836064 /* RealmChatTests.swift */; };
 		4F13E09C1DA484B000836064 /* RealmChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13E09B1DA484B000836064 /* RealmChatUITests.swift */; };
+		4F13E0AD1DA4860700836064 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F13E0AB1DA4860700836064 /* RealmSwift.framework */; };
+		4F13E0AE1DA4860700836064 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F13E0AC1DA4860700836064 /* Realm.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		4F13E0971DA484B000836064 /* RealmChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealmChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F13E09B1DA484B000836064 /* RealmChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChatUITests.swift; sourceTree = "<group>"; };
 		4F13E09D1DA484B000836064 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F13E0AB1DA4860700836064 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		4F13E0AC1DA4860700836064 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F13E0AD1DA4860700836064 /* RealmSwift.framework in Frameworks */,
+				4F13E0AE1DA4860700836064 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,7 @@
 				4F13E08F1DA484B000836064 /* RealmChatTests */,
 				4F13E09A1DA484B000836064 /* RealmChatUITests */,
 				4F13E0791DA484B000836064 /* Products */,
+				4F13E0AA1DA4860700836064 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +132,15 @@
 			path = RealmChatUITests;
 			sourceTree = "<group>";
 		};
+		4F13E0AA1DA4860700836064 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F13E0AB1DA4860700836064 /* RealmSwift.framework */,
+				4F13E0AC1DA4860700836064 /* Realm.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +151,7 @@
 				4F13E0741DA484AF00836064 /* Sources */,
 				4F13E0751DA484AF00836064 /* Frameworks */,
 				4F13E0761DA484AF00836064 /* Resources */,
+				4F13E0A91DA485DC00836064 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -256,6 +273,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F13E0A91DA485DC00836064 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F13E0741DA484AF00836064 /* Sources */ = {
@@ -414,6 +450,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K84E4S7G4C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RealmChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.fromkk.RealmChat;
@@ -427,6 +467,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K84E4S7G4C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RealmChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.fromkk.RealmChat;
