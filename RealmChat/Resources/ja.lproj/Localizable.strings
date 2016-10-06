@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  RealmChat
+
+  Created by Kazuya Ueoka on 2016/10/05.
+  Copyright © 2016年 fromKK. All rights reserved.
+*/
+
+"registration" = "新規登録";
+
+"login" = "ログイン";
+
+"rooms" = "チャットルーム";
+
+"createRoom" = "チャットルームを作成";
+
+"error" = "エラー";
+
+"error.emailOrPasswordEmpty" = "メールアドレスかパスワードが未入力です。";
+
+"error.loginFailed" = "ログインに失敗しました。";
+
+"error.registrationFailed" = "新規登録に失敗しました";
+
+"error.roomNameisEmpty" = "チャットルーム名を入力して下さい。";

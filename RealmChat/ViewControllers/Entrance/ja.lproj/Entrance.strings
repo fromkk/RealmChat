@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "5hZ-Uk-h9q"; */
+"5hZ-Uk-h9q.text" = "パスワード";
+
+/* Class = "UIButton"; normalTitle = "Registration"; ObjectID = "6c0-jj-nRe"; */
+"6c0-jj-nRe.normalTitle" = "新規登録";
+
+/* Class = "UIButton"; normalTitle = "Registration"; ObjectID = "6fM-IR-evL"; */
+"6fM-IR-evL.normalTitle" = "新規登録";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "73j-TE-Leu"; */
+"73j-TE-Leu.text" = "メールアドレス";
+
+/* Class = "UIViewController"; title = "Registration"; ObjectID = "Etw-V1-uPE"; */
+"Etw-V1-uPE.title" = "新規登録";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "I97-7V-3Iz"; */
+"I97-7V-3Iz.text" = "メールアドレス";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "KFw-vR-8it"; */
+"KFw-vR-8it.text" = "パスワード";
+
+/* Class = "UIViewController"; title = "Login"; ObjectID = "V7z-si-Eeh"; */
+"V7z-si-Eeh.title" = "ログイン";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "aLb-lu-SM5"; */
+"aLb-lu-SM5.normalTitle" = "ログイン";
+
+/* Class = "UILabel"; text = "RealmChat"; ObjectID = "iio-cn-CHa"; */
+"iio-cn-CHa.text" = "RealmChat";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "ydq-OF-reB"; */
+"ydq-OF-reB.normalTitle" = "ログイン";

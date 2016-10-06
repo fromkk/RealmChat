@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        self.window = UIWindow(frame: UIApplication.shared.keyWindow?.bounds ?? UIScreen.main.bounds)
+        self.controlRootViewController()
+        self.window?.backgroundColor = UIColor.white
+        self.window?.makeKeyAndVisible()
+
+        if let user: RLMSyncUser = User.all().first {
+            RealmConstants.setDefaultUser(user: user)
+        } else {
+            let credential: Credential = Credential.accessToken(RealmConstants.adminToken, identity: RealmConstants.identity)
+            User.authenticate(with: credential, server: RealmConstants.authURL, timeout: 30.0) { [weak self] (user, error) in
+
+                if let user = user {
+                    RealmConstants.setDefaultUser(user: user)
+                    self?.controlRootViewController()
+                } else if let error = error {
+                    print("login failed \(error)")
+                }
+            }
+        }
+
         return true
     }
 
@@ -44,3 +67,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    func controlRootViewController() {
+        var rootViewController: UIViewController?
+        if let _ = Member.currentMember {
+            rootViewController = UIStoryboard(name: "Top", bundle: Bundle.main).instantiateInitialViewController()
+        } else {
+            rootViewController = UIStoryboard(name: "Entrance", bundle: Bundle.main).instantiateInitialViewController()
+        }
+
+        self.window?.rootViewController = rootViewController
+    }
+}
