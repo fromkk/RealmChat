@@ -12,8 +12,6 @@
 		4F13E0861DA484B000836064 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F13E0841DA484B000836064 /* LaunchScreen.storyboard */; };
 		4F13E0911DA484B000836064 /* RealmChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13E0901DA484B000836064 /* RealmChatTests.swift */; };
 		4F13E09C1DA484B000836064 /* RealmChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13E09B1DA484B000836064 /* RealmChatUITests.swift */; };
-		4F13E0AD1DA4860700836064 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F13E0AB1DA4860700836064 /* RealmSwift.framework */; };
-		4F13E0AE1DA4860700836064 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F13E0AC1DA4860700836064 /* Realm.framework */; };
 		4F13E0B61DA4870400836064 /* EntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13E0B51DA4870400836064 /* EntranceViewController.swift */; };
 		4F13E0B91DA488B200836064 /* Entrance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F13E0BB1DA488B200836064 /* Entrance.storyboard */; };
 		4F13E0C11DA48A5800836064 /* Instantitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13E0C01DA48A5800836064 /* Instantitable.swift */; };
@@ -21,7 +19,6 @@
 		4F13E0C51DA48F1700836064 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13E0C41DA48F1700836064 /* LoginViewController.swift */; };
 		4F13E0C91DA499D900836064 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13E0C81DA499D900836064 /* Localizable.swift */; };
 		4F13E0CD1DA49ADE00836064 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F13E0CF1DA49ADE00836064 /* Localizable.strings */; };
-		4F9B82F51DA5E698000F177A /* HashKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9B82F41DA5E698000F177A /* HashKit.framework */; };
 		4F9B82FA1DA65BAD000F177A /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B82F91DA65BAD000F177A /* MessageCell.swift */; };
 		4FFF03231DA4A489004E938A /* RealmConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF03221DA4A489004E938A /* RealmConstants.swift */; };
 		4FFF03251DA4B3D3004E938A /* Libraries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF03241DA4B3D3004E938A /* Libraries.swift */; };
@@ -33,6 +30,9 @@
 		4FFF03331DA4E413004E938A /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF03321DA4E413004E938A /* RoomCell.swift */; };
 		4FFF03351DA4E5FF004E938A /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF03341DA4E5FF004E938A /* Reusable.swift */; };
 		4FFF03381DA4E8E2004E938A /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF03371DA4E8E2004E938A /* RoomViewController.swift */; };
+		AD69FFF71DAA4E1100DB0418 /* HashKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9B82F41DA5E698000F177A /* HashKit.framework */; };
+		AD69FFF81DAA4E1100DB0418 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F13E0AC1DA4860700836064 /* Realm.framework */; };
+		AD69FFF91DAA4E1100DB0418 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F13E0AB1DA4860700836064 /* RealmSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,9 +94,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F9B82F51DA5E698000F177A /* HashKit.framework in Frameworks */,
-				4F13E0AD1DA4860700836064 /* RealmSwift.framework in Frameworks */,
-				4F13E0AE1DA4860700836064 /* Realm.framework in Frameworks */,
+				AD69FFF71DAA4E1100DB0418 /* HashKit.framework in Frameworks */,
+				AD69FFF81DAA4E1100DB0418 /* Realm.framework in Frameworks */,
+				AD69FFF91DAA4E1100DB0418 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

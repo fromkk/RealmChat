@@ -101,5 +101,39 @@ extension TopViewController {
         roomViewController.room = self.rooms[indexPath.row]
         self.navigationController?.pushViewController(roomViewController, animated: true)
     }
+    
+    @objc(tableView:canFocusRowAtIndexPath:)
+    override func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
+        guard let currentMember: Member = Member.currentMember else {
+            return false
+        }
+        
+        let room: Room = self.rooms[indexPath.row]
+        return room.author.userId == currentMember.userId
+    }
+    
+    @objc(tableView:canEditRowAtIndexPath:)
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        guard let currentMember: Member = Member.currentMember else {
+            return false
+        }
+        
+        let room: Room = self.rooms[indexPath.row]
+        return room.author.userId == currentMember.userId
+    }
+    
+    @objc(tableView:commitEditingStyle:forRowAtIndexPath:)
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let realm: Realm = try! Realm()
+        
+        switch editingStyle {
+        case UITableViewCellEditingStyle.delete:
+            try! realm.write {
+                realm.delete(self.rooms[indexPath.row])
+            }
+        default:
+            break
+        }
+    }
 }
 

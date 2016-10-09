@@ -15,6 +15,7 @@ class Room: Object {
     dynamic var name: String = ""
     let members: List<Member> = List<Member>()
     dynamic var createdAt: NSDate = NSDate()
+    dynamic var author: Member!
 }
 
 extension Room {
@@ -27,6 +28,7 @@ extension Room {
         let room: Room = Room()
         room.name = name
         room.members.append(member)
+        room.author = member
         try! realm.write {
             realm.add(room)
         }

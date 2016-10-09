@@ -11,7 +11,7 @@ import Realm
 import RealmSwift
 
 class Message: Object {
-    dynamic var userId: String = ""
+    dynamic var member: Member!
     dynamic var roomId: String = ""
     dynamic var text: String = ""
     dynamic var createdAt: NSDate = NSDate()

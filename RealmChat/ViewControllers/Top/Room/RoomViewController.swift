@@ -83,7 +83,7 @@ class RoomViewController: UIViewController {
         self.messageField.text = nil
 
         let message: Message = Message()
-        message.userId = Member.currentMember!.userId
+        message.member = Member.currentMember!
         message.text = text
         message.roomId = self.room.roomId
 
@@ -138,7 +138,7 @@ extension RoomViewController: UITableViewDataSource {
         let cell: MessageCell = MessageCell.reuseCell(with: tableView, indexPath: indexPath)
         let message: Message = self.messages[indexPath.row]
         cell.messageLabel.text = message.text
-        if message.userId == Member.currentMember?.userId {
+        if message.member.userId == Member.currentMember!.userId {
             cell.messageLabel.textAlignment = NSTextAlignment.right
         } else {
             cell.messageLabel.textAlignment = NSTextAlignment.left
@@ -155,6 +155,39 @@ extension RoomViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+    
+    @objc(tableView:canFocusRowAtIndexPath:)
+    func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
+        guard let member: Member = Member.currentMember else {
+            return false
+        }
+        let message: Message = self.messages[indexPath.row]
+        return message.member.userId == member.userId
+    }
+    
+    @objc(tableView:canEditRowAtIndexPath:)
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        guard let member: Member = Member.currentMember else {
+            return false
+        }
+        let message: Message = self.messages[indexPath.row]
+        return message.member.userId == member.userId
+    }
+    
+    @objc(tableView:commitEditingStyle:forRowAtIndexPath:)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let realm: Realm = try! Realm()
+        
+        switch editingStyle {
+        case UITableViewCellEditingStyle.delete:
+            try! realm.write {
+                realm.delete(self.messages[indexPath.row])
+            }
+        default:
+            break
+        }
     }
 }
 

@@ -24,11 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = UIColor.white
         self.window?.makeKeyAndVisible()
 
-        if let user: RLMSyncUser = User.all().first {
+        if let user: RLMSyncUser = RLMSyncUser.all().first {
             RealmConstants.setDefaultUser(user: user)
         } else {
             let credential: Credential = Credential.accessToken(RealmConstants.adminToken, identity: RealmConstants.identity)
-            User.authenticate(with: credential, server: RealmConstants.authURL, timeout: 30.0) { [weak self] (user, error) in
+            RLMSyncUser.authenticate(with: credential, server: RealmConstants.authURL, timeout: 30.0) { [weak self] (user, error) in
 
                 if let user = user {
                     RealmConstants.setDefaultUser(user: user)
@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-
+        
         return true
     }
 
