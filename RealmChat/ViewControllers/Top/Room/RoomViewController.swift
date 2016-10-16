@@ -11,10 +11,15 @@ import Realm
 import RealmSwift
 
 class RoomViewController: UIViewController {
+    fileprivate enum Localizations: String, Localizable {
+        case send = "send"
+    }
+    
     var room: Room!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var inputViewBottom: NSLayoutConstraint!
     @IBOutlet weak var messageField: UITextField!
+    @IBOutlet weak var sendButton: UIButton!
     var messages: Results<Message>!
     var notificationToken: NotificationToken?
 
@@ -22,6 +27,7 @@ class RoomViewController: UIViewController {
         super.loadView()
 
         self.title = self.room.name
+        self.sendButton.setTitle(Localizations.send.localize(), for: UIControlState.normal)
 
         let realm: Realm = try! Realm()
         let predicate: NSPredicate = NSPredicate(format: "roomId = %@", self.room.roomId)

@@ -14,25 +14,29 @@ import RealmSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var members: Results<Member>?
+    var notificationToken: NotificationToken?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
         self.window = UIWindow(frame: UIApplication.shared.keyWindow?.bounds ?? UIScreen.main.bounds)
-        self.controlRootViewController()
+        self.window?.rootViewController = IndicatorViewController(nibName: nil, bundle: nil)
         self.window?.backgroundColor = UIColor.white
         self.window?.makeKeyAndVisible()
 
-        if let user: RLMSyncUser = RLMSyncUser.all().first {
+        if let user: SyncUser = SyncUser.all().first {
             RealmConstants.setDefaultUser(user: user)
+            self.controlRootViewController()
+            self.startNotification()
         } else {
             let credential: Credential = Credential.accessToken(RealmConstants.adminToken, identity: RealmConstants.identity)
-            RLMSyncUser.authenticate(with: credential, server: RealmConstants.authURL, timeout: 30.0) { [weak self] (user, error) in
+            SyncUser.authenticate(with: credential, server: RealmConstants.authURL, timeout: 30.0) { [weak self] (user, error) in
 
                 if let user = user {
                     RealmConstants.setDefaultUser(user: user)
                     self?.controlRootViewController()
+                    self?.startNotification()
                 } else if let error = error {
                     print("login failed \(error)")
                 }
@@ -64,10 +68,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    deinit {
+        self.notificationToken?.stop()
+    }
 }
 
 extension AppDelegate {
+    fileprivate func startNotification() {
+        guard nil == self.notificationToken else {
+            return
+        }
+        
+        let realm: Realm = try! Realm()
+        self.members = realm.objects(Member.self)
+        self.notificationToken = self.members?.addNotificationBlock({ [weak self] (changes) in
+            guard let _ = Member.currentMember else {
+                return
+            }
+            self?.controlRootViewController()
+        })
+    }
+    
     func controlRootViewController() {
         var rootViewController: UIViewController?
         if let _ = Member.currentMember {

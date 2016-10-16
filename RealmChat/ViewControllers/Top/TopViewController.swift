@@ -14,6 +14,7 @@ class TopViewController: UITableViewController {
     fileprivate enum Localizations: String, Localizable {
         case title = "rooms"
         case createRoom = "createRoom"
+        case cancel = "cancel"
     }
     fileprivate enum TopError: Error {
         case roomNameEmpty
@@ -66,6 +67,7 @@ class TopViewController: UITableViewController {
         alert.addTextField { [unowned self] (textField: UITextField) in
             self.roomNameTextField = textField
         }
+        alert.addAction(UIAlertAction(title: Localizations.cancel.localize(), style: UIAlertActionStyle.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { [unowned self] (action: UIAlertAction) in
             guard let roomName = self.roomNameTextField?.text, 0 < roomName.characters.count else {
                 showErrorAlert(message: TopError.roomNameEmpty.message(), for: self, callback: nil)
@@ -100,6 +102,9 @@ extension TopViewController {
         let roomViewController: RoomViewController = RoomViewController.instantitate()
         roomViewController.room = self.rooms[indexPath.row]
         self.navigationController?.pushViewController(roomViewController, animated: true)
+        defer {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
     
     @objc(tableView:canFocusRowAtIndexPath:)

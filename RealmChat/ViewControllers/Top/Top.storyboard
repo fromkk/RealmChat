@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dyf-n9-8hp" id="g3Z-C5-LYn">
-                                    <frame key="frameInset" width="375" height="43.5"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsC-pQ-q6J">
@@ -72,7 +72,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TsE-bi-rwe" id="k9H-sa-mwX">
-                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZf-fi-LUv">
@@ -109,6 +109,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="54" id="HZ5-fa-2G7"/>
                                         </constraints>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Send"/>
                                         <connections>
                                             <action selector="onSendButtonDidTapped:" destination="bM2-bs-c1D" eventType="touchUpInside" id="qyN-Zf-Frk"/>
@@ -144,6 +145,7 @@
                     <connections>
                         <outlet property="inputViewBottom" destination="0Dg-RC-HIh" id="h0G-So-KCX"/>
                         <outlet property="messageField" destination="Nyg-GX-vRD" id="CqN-Am-0vu"/>
+                        <outlet property="sendButton" destination="1D5-fy-uCF" id="TPZ-FG-5dy"/>
                         <outlet property="tableView" destination="pdp-tg-Als" id="dvB-kr-w83"/>
                     </connections>
                 </viewController>

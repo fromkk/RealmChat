@@ -16,6 +16,8 @@
 
 "error" = "Error";
 
+"cancel" = "Cancel";
+
 "error.emailOrPasswordEmpty" = "empty Email or Password";
 
 "error.loginFailed" = "Login failed";
@@ -23,3 +25,5 @@
 "error.registrationFailed" = "Registration failed";
 
 "error.roomNameisEmpty" = "Room name is empty.";
+
+"send" = "Send";

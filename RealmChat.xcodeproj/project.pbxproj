@@ -33,6 +33,7 @@
 		AD69FFF71DAA4E1100DB0418 /* HashKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9B82F41DA5E698000F177A /* HashKit.framework */; };
 		AD69FFF81DAA4E1100DB0418 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F13E0AC1DA4860700836064 /* Realm.framework */; };
 		AD69FFF91DAA4E1100DB0418 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F13E0AB1DA4860700836064 /* RealmSwift.framework */; };
+		ADF2DE041DB3711B005DA12B /* IndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF2DE031DB3711B005DA12B /* IndicatorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		4FFF03321DA4E413004E938A /* RoomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
 		4FFF03341DA4E5FF004E938A /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		4FFF03371DA4E8E2004E938A /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		ADF2DE031DB3711B005DA12B /* IndicatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 				4F13E0B31DA486E000836064 /* Register */,
 				4F13E0B51DA4870400836064 /* EntranceViewController.swift */,
 				4F13E0BB1DA488B200836064 /* Entrance.storyboard */,
+				ADF2DE031DB3711B005DA12B /* IndicatorViewController.swift */,
 			);
 			path = Entrance;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADF2DE041DB3711B005DA12B /* IndicatorViewController.swift in Sources */,
 				4FFF03231DA4A489004E938A /* RealmConstants.swift in Sources */,
 				4F9B82FA1DA65BAD000F177A /* MessageCell.swift in Sources */,
 				4FFF03331DA4E413004E938A /* RoomCell.swift in Sources */,

@@ -14,6 +14,8 @@
 
 "createRoom" = "チャットルームを作成";
 
+"cancel" = "キャンセル";
+
 "error" = "エラー";
 
 "error.emailOrPasswordEmpty" = "メールアドレスかパスワードが未入力です。";
@@ -23,3 +25,5 @@
 "error.registrationFailed" = "新規登録に失敗しました";
 
 "error.roomNameisEmpty" = "チャットルーム名を入力して下さい。";
+
+"send" = "送信";
