@@ -15,6 +15,7 @@ class TopViewController: UITableViewController {
         case title = "rooms"
         case createRoom = "createRoom"
         case cancel = "cancel"
+        case logout = "logout"
     }
     fileprivate enum TopError: Error {
         case roomNameEmpty
@@ -30,6 +31,12 @@ class TopViewController: UITableViewController {
         let result: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(self.onAddButtonDidTapped(sender:)))
         return result
     }()
+
+    lazy var logoutButton: UIBarButtonItem = {
+        let result: UIBarButtonItem = UIBarButtonItem(title: Localizations.logout.localize(), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.onLogoutButtonDidTapped(sender:)))
+        return result
+    }()
+
     var roomNameTextField: UITextField?
     var rooms: Results<Room>!
     var notificationToken: NotificationToken?
@@ -38,6 +45,7 @@ class TopViewController: UITableViewController {
         super.loadView()
 
         self.title = Localizations.title.localize()
+        self.navigationItem.leftBarButtonItem = self.logoutButton
         self.navigationItem.rightBarButtonItem = self.addButton
 
         let realm: Realm = try! Realm()
@@ -77,6 +85,11 @@ class TopViewController: UITableViewController {
             Room.create(name: roomName)
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+
+    func onLogoutButtonDidTapped(sender: AnyObject) {
+        Member.currentMember?.logout()
+        (UIApplication.shared.delegate as? AppDelegate)?.controlRootViewController()
     }
 }
 

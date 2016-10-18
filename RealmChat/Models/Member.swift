@@ -61,6 +61,10 @@ extension Member {
         return member
     }
 
+    func logout() {
+        UserDefaults.standard.removeObject(forKey: Constants.tokenKey)
+    }
+
     static var currentMember: Member? {
         guard let token: String = UserDefaults.standard.string(forKey: Constants.tokenKey) else {
             return nil

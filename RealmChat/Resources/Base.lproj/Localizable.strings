@@ -27,3 +27,5 @@
 "error.roomNameisEmpty" = "Room name is empty.";
 
 "send" = "Send";
+
+"logout" = "Logout";

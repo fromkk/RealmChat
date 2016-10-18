@@ -27,3 +27,5 @@
 "error.roomNameisEmpty" = "チャットルーム名を入力して下さい。";
 
 "send" = "送信";
+
+"logout" = "ログアウト";
