@@ -20,9 +20,7 @@ enum RealmConstants {
     static let identity: String = "USER IDENTITY HERE"
 
     static func setDefaultUser(user: RLMSyncUser) {
-        let configuration: Realm.Configuration = Realm.Configuration(syncConfiguration: (user, realmURL), schemaVersion: 1, migrationBlock: { (migration, oldSchemeVersion) in
-            //Nothing todo
-        })
+        let configuration: Realm.Configuration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: realmURL))
         Realm.Configuration.defaultConfiguration = configuration
     }
 }

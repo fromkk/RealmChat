@@ -25,14 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = UIColor.white
         self.window?.makeKeyAndVisible()
 
-        if let user: SyncUser = SyncUser.all().first {
-            RealmConstants.setDefaultUser(user: user)
+        if let user = RLMSyncUser.all.first {
+            RealmConstants.setDefaultUser(user: user.value)
             self.controlRootViewController()
             self.startNotification()
         } else {
-            let credential: Credential = Credential.accessToken(RealmConstants.adminToken, identity: RealmConstants.identity)
-            SyncUser.authenticate(with: credential, server: RealmConstants.authURL, timeout: 30.0) { [weak self] (user, error) in
-
+            let credential: SyncCredentials = SyncCredentials.accessToken(RealmConstants.adminToken, identity: RealmConstants.identity)
+            SyncUser.logIn(with: credential, server: RealmConstants.authURL, onCompletion: { [weak self] (user, error) in
                 if let user = user {
                     RealmConstants.setDefaultUser(user: user)
                     self?.controlRootViewController()
@@ -40,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 } else if let error = error {
                     print("login failed \(error)")
                 }
-            }
+            })
         }
         
         return true
